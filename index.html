@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="referrer" content="no-referrer" />
   <title>이미지 보기</title>
   <meta name="color-scheme" content="light dark" />
   <style>
@@ -15,38 +14,17 @@
       width:100vw;
       height:auto;
       max-width:100%;
-      -webkit-user-select:none; user-select:none;
+      -webkit-user-select:none;
+      user-select:none;
       -webkit-touch-callout:none;
     }
     .wrap { max-width:100vw; margin:0 auto; }
-    .fallback { color:#ccc; font:14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, Malgun Gothic, sans-serif; padding:16px; display:none; }
-    .fallback a { color:#8ab4f8; text-decoration:underline; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- (C) Naver postfiles 직접 링크 사용 + referrer 차단 -->
-    <img id="pic"
-         referrerpolicy="no-referrer"
-         alt="세로형 이미지"
-         loading="eager"
-         src="https://postfiles.pstatic.net/MjAyNTA5MTlfMzAw/MDAxNzU4MjY4NDczMzA5.qZuSwuULYh3K922LjVbAtpf12zrhprvYu9S85or7w0Yg.ICyrkjkJCYtrhmPsMy_d51YBoeqPQK-WWMEXoAK4pxIg.PNG/%EC%93%B0%EB%A0%88%EC%8B%9C.png?type=w773#v=2" />
-    <div id="fallback" class="fallback">
-      이미지 로딩에 실패했어요. <a id="openDirect" href="#" target="_blank" rel="noopener">원본 링크로 열기</a> 후,
-      안되면 레포에 이미지를 직접 올려서 <code>&lt;img src="./assets/long.png"&gt;</code>로 교체해 주세요.
-    </div>
+    <!-- assets 폴더 안에 있는 쓰레시.png 이미지를 불러옵니다 -->
+    <img src="./assets/쓰레시.png?v=1" alt="세로형 이미지" loading="eager" />
   </div>
-  <script>
-    const img = document.getElementById('pic');
-    const fb  = document.getElementById('fallback');
-    const openDirect = document.getElementById('openDirect');
-    const directURL = "https://postfiles.pstatic.net/MjAyNTA5MTlfMzAw/MDAxNzU4MjY4NDczMzA5.qZuSwuULYh3K922LjVbAtpf12zrhprvYu9S85or7w0Yg.ICyrkjkJCYtrhmPsMy_d51YBoeqPQK-WWMEXoAK4pxIg.PNG/%EC%93%B0%EB%A0%88%EC%8B%9C.png?type=w773";
-    openDirect.href = directURL;
-
-    img.addEventListener('error', () => {
-      img.style.display = 'none';
-      fb.style.display = 'block';
-    });
-  </script>
 </body>
 </html>
